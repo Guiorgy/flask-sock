@@ -84,6 +84,9 @@ class Sock:
                             raise StopIteration()
                         elif ws.mode == 'werkzeug':
                             raise ConnectionError()
+                        elif ws.mode == 'cheroot':
+                            super().__call__(*args, **kwargs)
+                            return []
                         else:
                             return []
 
